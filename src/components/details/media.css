@@ -1,0 +1,27 @@
+@media (max-width: 690px){
+    .section-details{
+        display: flex;
+        flex-direction: column;
+    }
+    .section-details img{
+        width:200px;
+    }
+    .section-details div h1{
+        font-size: 15px;
+    }
+    .container .production .div{
+        position: absolute;
+        top: 680px;
+        width:50%;
+    }
+    .container .overview .div{
+        position: absolute;
+        top: 650px;
+        width:50%;
+    }
+    .container .genre .div{
+        position: absolute;
+        top: 610px;
+        width:50%;
+    }
+}

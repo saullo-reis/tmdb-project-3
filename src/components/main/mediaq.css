@@ -1,0 +1,15 @@
+@media(max-width:470px){
+    .header{
+        flex-direction: column;
+    }
+    .header div{
+        display:flex;
+        flex-direction:column;
+        align-items: center;
+        justify-content: center;
+        margin-top: 30px;
+    }
+    .header div input{
+        margin: 0;
+    }
+}
