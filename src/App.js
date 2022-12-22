@@ -6,15 +6,28 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Main from "./components/main/main";
 import {Details} from './components/details/details'
 import Films from "./components/main/films";
+import { Header } from "./components/header/header";
+import { TopRated } from "./components/main/toprated";
+import { Search } from "./components/main/search";
+import { useState } from "react";
 
 function App() {
+  const [data, setData] = useState('');
+
+  const childToParent = (childdata) => {
+    setData(childdata)
+  }
+  console.log(data)
   return (
     <>
+      <Header childToParent={childToParent}/>
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<Main/>}/>
-        <Route path="/details" element={<Details/>}/>
-        <Route path="/emAlta" element={<Main><Films/></Main>}/>
+        <Route path="/emAlta" element={<Films/>}/>
+        <Route path="/bemRanqueados" element={<TopRated/>}/>
+        <Route path="/search" element={<Search data={data}/>}/>
+        <Route path="/movie/:id" element={<Details/>}/>
       </Routes>
       <Fotter />
     </>  

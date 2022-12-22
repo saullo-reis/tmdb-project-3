@@ -5,6 +5,7 @@ import { useState } from "react";
 import "./mediaq.css"
 import { TopRated } from "./toprated";
 import Films from "./films";
+import { Header } from "../header/header";
 
 const Main = () => {
   const [name, setName] = useState("");
@@ -21,25 +22,8 @@ const Main = () => {
   })
   return (
     <>
-      <Header className="header">
-        <Link to={"/"}>
-          <H1>
-            <img src={icon} />
-          </H1>
-        </Link>
-        <div>
-          <InputStyle
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-            type="text"
-            placeholder="Título do filme"
-          />
-          <Button onClick={() => parentToChild()}>Procurar</Button>
-        </div>
-      </Header>
+      
       <Films data={data} />
-      <Division/>
-      <TopRated/>
     </>
   );
 };
@@ -79,16 +63,7 @@ const InputStyle = styled.input`
   }
 `;
 
-const Header = styled.section`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: linear-gradient(#000000, #363434);
-  padding: 20px;
-  a {
-    text-decoration: none;
-  }
-`;
+
 
 const H1 = styled.h1`
   font-size: 40px;

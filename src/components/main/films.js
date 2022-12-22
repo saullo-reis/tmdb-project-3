@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 const Films = (data) => {
-  const [films, setFilms] = useState([]);
+  
   const [filmsInAlt, setFilmsInAlt] = useState([]);
 
   useState(() => {
@@ -15,24 +15,14 @@ const Films = (data) => {
     fetchData();
   }, []);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (data.data != "") {
-        const Film = await getName(data.data);
-        setFilms(Film.results);
-      } else {
-        return;
-      }
-    };
-    fetchData();
-  }, [data.data]);
+  
   return (
     <SectionFilms>
       <Div>
-        {data.data == "" ? <H2>Filmes Em Alta</H2> : <H2>Filmes Pesquisados</H2>}
+        <H2>Filmes Em Alta</H2>
       </Div>
       <Ul>
-        {data.data == "" ? (
+        {
           filmsInAlt.map((film, index) => {
             {
               return (
@@ -53,28 +43,7 @@ const Films = (data) => {
               );
             }
           })
-        ) : (
-          <Ul>
-            {films.map((film, index) => {
-              return (
-                <Li key={index}>
-                  <Link to={`/movie/${film.id}`}>
-                    {film.poster_path == null ? (
-                      <Box>
-                        <p>Foto do filme não encontrada</p>
-                      </Box>
-                    ) : (
-                      <Img
-                        src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`}
-                      ></Img>
-                    )}
-                  </Link>
-                  <H4>{film.title}</H4>
-                </Li>
-              );
-            })}
-          </Ul>
-        )}
+        }
       </Ul>
     </SectionFilms>
   );

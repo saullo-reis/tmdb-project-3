@@ -34,13 +34,6 @@ const Details = () => {
   }, []);
   return (
     <>
-      <Header>
-        <Link to={"/"}>
-          <H1>
-            <img src={icon} />
-          </H1>
-        </Link>
-      </Header>
       <Section >
         <PhotoAndInfos className="section-details">
           <PhotoAndName>
