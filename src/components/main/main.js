@@ -21,73 +21,41 @@ const Main = () => {
     }
   })
   return (
-    <>
-      
+    <Section>
+      <Div>
+        <Link to={"/emAlta"}>Filmes em Alta</Link>
+        <Link to={"/bemRanqueados"}>Filmes bem ranqueados</Link>
+      </Div>
       <Films data={data} />
-    </>
+    </Section>
   );
 };
 
-const Button = styled.button`
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  font-weight: bold;
-  padding: 10px;
-  height: 40px;
-  color: black;
-  background-color: white;
-  transition: 1.2s;
-  :hover {
-    transform: scale(1.1, 1.1);
-    color: white;
-    background-color: red;
-  }
-`;
 
-const Division = styled.div`
-  height:1px;
-  background:black;
+const Section = styled.section`
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  
+  
 `
-const InputStyle = styled.input`
-  height: 30px;
-  width: 60%;
-  border: solid white 2px;
-  margin-right: 10px;
-  padding: 5px;
-  background-color: black;
-  background-opacity: 0.5;
-  color: white;
-  target: {
-    border: white 3px solid;
-  }
-`;
-
-
-
-const H1 = styled.h1`
-  font-size: 40px;
-  font-weight: bold;
-  color: #ffffff;
-  margin-left: 10px;
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 2px;
-  border-radius: 900px;
-  width: 100px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 1.1s;
-  background-color: white;
-  cursor: pointer;
-  box-shadow: 5px 2px 2px black;
-  :hover {
-    background-color: red;
-  }
-  img {
-    width: 100px;
-  }
-`;
-
+const Div = styled.div`
+  margin-bottom:20px;
+  a{
+    text-decoration:none;
+    font-weight:bold;
+    background-color:white;
+    border-radius:20px;
+    margin-left:20px;
+    color:black;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    padding:10px;
+    transition:1.2s;
+    :hover{
+      background-color:red;
+      color:white;
+    }
+}
+`
 export default Main;

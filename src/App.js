@@ -17,7 +17,7 @@ function App() {
   const childToParent = (childdata) => {
     setData(childdata)
   }
-  console.log(data)
+  
   return (
     <>
       <Header childToParent={childToParent}/>

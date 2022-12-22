@@ -74,6 +74,7 @@ const H2 = styled.h1`
   font-family: "Roboto", sans-serif;
   letter-spacing: 2px;
   text-shadow: 5px 2px 2px black;
+  text-align:center;
 `;
 
 const Ul = styled.ul`

@@ -8,7 +8,6 @@ export const Header = ({childToParent}) => {
     const [name, setName] = useState("");
     const [data, setData] = useState(name);
 
-    console.log(name)
     document.addEventListener("keypress", function (enter) {
         if (enter.key === "Enter") {
             childToParent(data);
