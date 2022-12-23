@@ -1,14 +1,13 @@
 import styled from "styled-components";
-import { getPopular } from "./get";
+import { getUpcoming } from "./get";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../loading/loading";
 
-const Films = () => {
-  const [filmsInAlt, setFilmsInAlt] = useState([]);
+export const Upcoming = () => {
+  const [Upcoming, setUpcoming] = useState([]);
   const [count, setCount] = useState(1);
   const [removeLoading, setRemoveLoading] = useState(false);
-
   const voltarPagina = () => {
     if (count != 1) {
       setCount(count - 1);
@@ -20,9 +19,9 @@ const Films = () => {
   useEffect(() => {
     setTimeout(() => {
       const fetchData = async () => {
-        const response = await getPopular(count);
-        setFilmsInAlt(response.results);
-        setRemoveLoading(true)
+        const response = await getUpcoming(count);
+        setUpcoming(response.results);
+        setRemoveLoading(true);
       };
       fetchData();
     }, 300);
@@ -31,37 +30,38 @@ const Films = () => {
   return (
     <SectionFilms>
       <Div>
-        <Link to={"/Upcoming"}>Lançamento</Link>
-        <Link to={"/emAlta"} style={{ background: "red", color: "white" }}>
-          Filmes em Alta
+        <Link to={"/Upcoming"} style={{ background: "red", color: "white" }}>
+          Lançamento
         </Link>
+        <Link to={"/emAlta"}>Filmes em Alta</Link>
         <Link to={"/bemRanqueados"}>Filmes bem ranqueados</Link>
       </Div>
       <Div>
-        <H2>Filmes Em Alta</H2>
+        <H2>Filmes em Lançamento</H2>
       </Div>
       <Ul>
-        {filmsInAlt.length > 0 && filmsInAlt.map((film, index) => {
-          {
-            return (
-              <Li key={index}>
-                <Link to={`/movie/${film.id}`}>
-                  {film.poster_path == null ? (
-                    <Box>
-                      <p>Foto do filme não encontrada</p>
-                    </Box>
-                  ) : (
-                    <Img
-                      src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`}
-                    ></Img>
-                  )}
-                </Link>
-                <H4>{film.title}</H4>
-              </Li>
-            );
-          }
-        })}
-        {!removeLoading && <Loading/>}
+        {Upcoming.length > 0 &&
+          Upcoming.map((film, index) => {
+            {
+              return (
+                <Li key={index}>
+                  <Link to={`/movie/${film.id}`}>
+                    {film.poster_path == null ? (
+                      <Box>
+                        <p>Foto do filme não encontrada</p>
+                      </Box>
+                    ) : (
+                      <Img
+                        src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`}
+                      ></Img>
+                    )}
+                  </Link>
+                  <H4>{film.title}</H4>
+                </Li>
+              );
+            }
+          })}
+        {!removeLoading && <Loading />}
       </Ul>
       <Div>
         <Button onClick={() => voltarPagina()}>←</Button>
@@ -114,17 +114,22 @@ const Img = styled.img`
 const SectionFilms = styled.section`
   margin-bottom: 60px;
   padding: 30px;
-`;
-const Div = styled.div`
-  flex-flow:row wrap;
-  margin-bottom:5px;
   display: flex;
   align-items: center;
   justify-content: center;
-  h1{
+  flex-direction: column;
+`;
+
+const Div = styled.div`
+    flex-flow:row wrap;
+    margin-bottom:5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    h1{
     text-align:center;
-  }
-  a{
+    }
+    a{
     text-decoration:none;
     font-weight:bold;
     margin-bottom:5px;
@@ -136,8 +141,8 @@ const Div = styled.div`
     padding:10px;
     transition:1.2s;
     :hover{
-      background-color:red;
-      color:white;
+        background-color:red;
+        color:white;
     }
 `;
 
@@ -185,5 +190,3 @@ const Li = styled.li`
     }
   }
 `;
-
-export default Films;

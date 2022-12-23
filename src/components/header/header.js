@@ -74,6 +74,8 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
   font-weight: bold;
+  margin-top:10px;
+  margin-bottom:30px;
   padding: 10px;
   height: 40px;
   color: black;

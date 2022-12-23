@@ -2,47 +2,95 @@ import { getTopRated } from "./get";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import Loading from "../loading/loading";
 
 export const TopRated = () => {
   const [filmsTopRated, setTopRated] = useState([]);
+  const [count, setCount] = useState(1);
+  const [removeLoading, setRemoveLoading] = useState(false);
+
+  const voltarPagina = () => {
+    if (count != 1) {
+      setCount(count - 1);
+    }
+  };
+  const avancarPagina = () => {
+    setCount(count + 1);
+  };
   useEffect(() => {
-    const fetchData = async () => {
-      const response = await getTopRated();
-      setTopRated(response.results)
-    };
-    fetchData();
-  }, []);
+    setTimeout(() => {
+      const fetchData = async () => {
+        const response = await getTopRated(count);
+        setTopRated(response.results);
+        setRemoveLoading(true);
+      };
+      fetchData();
+    }, 300);
+  }, [count]);
 
   return (
     <SectionTopRated>
+      <Div>
+        <Link to={"/Upcoming"}>Lançamento</Link>
+        <Link to={"/emAlta"}>Filmes em Alta</Link>
+        <Link
+          to={"/bemRanqueados"}
+          style={{ background: "red", color: "white" }}
+        >
+          Filmes bem ranqueados
+        </Link>
+      </Div>
       <H2>Filmes bem ranqueados</H2>
-        <Ul>
-          {
-            filmsTopRated.map((film, index) => {
-              {
-                return (
-                  <Li key={index}>
-                    <Link to={`/movie/${film.id}`}>
-                      {film.poster_path == null ? (
-                        <Box>
-                          <p>Foto do filme não encontrada</p>
-                        </Box>
-                      ) : (
-                        <Img
-                          src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`}
-                        ></Img>
-                      )}
-                    </Link>
-                    <H4>{film.title}</H4>
-                  </Li>
-                );
-              }
-            })
-          }
-        </Ul>
+      <Ul>
+        {filmsTopRated.length > 0 &&
+          filmsTopRated.map((film, index) => {
+            {
+              return (
+                <Li key={index}>
+                  <Link to={`/movie/${film.id}`}>
+                    {film.poster_path == null ? (
+                      <Box>
+                        <p>Foto do filme não encontrada</p>
+                      </Box>
+                    ) : (
+                      <Img
+                        src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`}
+                      ></Img>
+                    )}
+                  </Link>
+                  <H4>{film.title}</H4>
+                </Li>
+              );
+            }
+          })}
+        {!removeLoading && <Loading />}
+      </Ul>
+      <Div>
+        <Button onClick={() => voltarPagina()}>←</Button>
+        <H2>{count}</H2>
+        <Button onClick={() => avancarPagina()}>→</Button>
+      </Div>
     </SectionTopRated>
   );
 };
+
+const Button = styled.button`
+  text-decoration: none;
+  font-weight: bold;
+  margin-bottom: 5px;
+  background-color: white;
+  border-radius: 20px;
+  color: black;
+  cursor: pointer;
+  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+  padding: 0 5px 0 5px;
+  font-size: 30px;
+  transition: 1.2s;
+  :hover {
+    background-color: red;
+    color: white;
+  }
+`;
 
 const Ul = styled.ul`
   display: flex;
@@ -53,14 +101,40 @@ const Ul = styled.ul`
   }
 `;
 
+const Div = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-flow:row wrap;
+  
+  h1{
+    text-align:center;
+  }
+  a{
+    margin-bottom:5px;
+    text-decoration:none;
+    font-weight:bold;
+    background-color:white;
+    border-radius:20px;
+    margin-left:20px;
+    color:black;
+    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
+    padding:10px;
+    transition:1.2s;
+    :hover{
+      background-color:red;
+      color:white;
+    }
+`;
+
 const H2 = styled.h1`
   font-size: 40px;
   color: #ffffff;
-  margin: 20px 0 20px 0;
+  margin: 20px 10px 20px 10px;
   font-family: "Roboto", sans-serif;
   letter-spacing: 2px;
   text-shadow: 5px 2px 2px black;
-  text-align:center;
+  text-align: center;
 `;
 
 const SectionTopRated = styled.section`
@@ -68,7 +142,7 @@ const SectionTopRated = styled.section`
     align-items center;
     justify-content:center;
     flex-direction:column;
-    padding:50px;
+    padding:30px;
     ul{
       display:flex;
       align-items:center;
@@ -118,6 +192,7 @@ const Img = styled.img`
 
 const H4 = styled.p`
   display: none;
+  text-align: center;
   color: white;
 `;
 const Li = styled.li`
@@ -140,4 +215,3 @@ const Li = styled.li`
     }
   }
 `;
-

@@ -12,17 +12,17 @@ async function getName(name) {
   return await json;
 }
 
-async function getPopular() {
+async function getPopular(n) {
   const url =
-    "https://api.themoviedb.org/3/movie/popular?api_key=fdeab699e71d0a1e88b79ec90e5a4e30&language=pt-BR&page=1";
+    `https://api.themoviedb.org/3/movie/popular?api_key=fdeab699e71d0a1e88b79ec90e5a4e30&language=pt-BR&page=${n}`;
   const response = await fetch(url);
   const json = await response.json();
   return await json;
 }
 
-async function getTopRated() {
+async function getTopRated(n) {
   const url =
-    "https://api.themoviedb.org/3/movie/top_rated?api_key=fdeab699e71d0a1e88b79ec90e5a4e30&language=pt-BR&page=1";
+    `https://api.themoviedb.org/3/movie/top_rated?api_key=fdeab699e71d0a1e88b79ec90e5a4e30&language=pt-BR&page=${n}`;
   const response = await fetch(url);
   const json = await response.json();
   return await json;
@@ -35,5 +35,12 @@ async function getSimilarMovie(movie_id) {
   return await json;
 }
 
+async function getUpcoming(n) {
+  const url = `https://api.themoviedb.org/3/movie/upcoming?api_key=fdeab699e71d0a1e88b79ec90e5a4e30&language=en-US&page=${n}`
+  const response = await fetch(url)
+  const json = response.json()
+  return await json
+}
 
-export { getMovie, getName, getPopular, getTopRated, getSimilarMovie };
+
+export { getMovie, getName, getPopular, getTopRated, getSimilarMovie, getUpcoming };

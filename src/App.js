@@ -10,6 +10,7 @@ import { Header } from "./components/header/header";
 import { TopRated } from "./components/main/toprated";
 import { Search } from "./components/main/search";
 import { useState } from "react";
+import { Upcoming } from "./components/main/upcoming";
 
 function App() {
   const [data, setData] = useState('');
@@ -28,6 +29,7 @@ function App() {
         <Route path="/bemRanqueados" element={<TopRated/>}/>
         <Route path="/search" element={<Search data={data}/>}/>
         <Route path="/movie/:id" element={<Details/>}/>
+        <Route path="/upcoming" element={<Upcoming/>}/>
       </Routes>
       <Fotter />
     </>  
@@ -56,6 +58,9 @@ const GlobalStyle = createGlobalStyle`
   }
   html{
     height:100%;
+  }
+  a{
+    text-align:center;
   }
   
 `;

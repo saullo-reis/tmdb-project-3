@@ -2,27 +2,32 @@ import { useState, useEffect } from "react";
 import { getName } from "./get";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import Loading from "../loading/loading";
 
 export const Search = (data) => {
     const [films, setFilms] = useState([]);
+    const [removeLoading, setRemoveLoading] = useState(false);
 
     useEffect(() => {
-        const fetchData = async () => {
-          if (data.data != "") {
-            const Film = await getName(data.data);
-            setFilms(Film.results);
-          } else {
-            return;
-          }
-        };
-        fetchData();
+        setTimeout(() => {
+          const fetchData = async () => {
+            if (data.data != "") {
+              const Film = await getName(data.data);
+              setFilms(Film.results);
+              setRemoveLoading(true)
+            } else {
+              return;
+            }
+          };
+          fetchData();
+        }, 300);
       }, [data.data]);
 
     return(
         <>
             <H2>Filmes Pesquisados</H2>
             <Ul>
-              {films.map((film, index) => {
+              {films.length > 0 && films.map((film, index) => {
                 return (
                   <Li key={index}>
                     <Link to={`/movie/${film.id}`}>
@@ -40,6 +45,7 @@ export const Search = (data) => {
                   </Li>
                 );
               })}
+              {!removeLoading && <Loading/>}
             </Ul>
         </>
     )
@@ -90,6 +96,7 @@ const Ul = styled.ul`
 const H4 = styled.p`
   display: none;
   color: white;
+  text-align:center;
 `;
 const Li = styled.li`
   list-style: none;

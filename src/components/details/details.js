@@ -199,43 +199,6 @@ const Img = styled.img`
   box-shadow: 5px 2px 2px black;
 `;
 
-const Header = styled.section`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-  background: linear-gradient(#000000, #363434);
-  a {
-    text-decoration: none;
-  }
-`;
-
-const H1 = styled.h1`
-  font-size: 40px;
-  font-weight: bold;
-  color: #ffffff;
-  margin-left: 10px;
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 2px;
-  text-shadow: 3px 3px black;
-  border-radius: 900px;
-  width: 100px;
-  padding: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 1.1s;
-  background-color: white;
-  cursor: pointer;
-  :hover {
-    background-color: red;
-  }
-  img {
-    width: 100px;
-  }
-`;
-
 const Infos = styled.section`
   color: white;
   display: flex;
@@ -300,6 +263,7 @@ const PhotoAndName = styled.div`
     text-align:center;
     font-size: 28px;
     width:320px;
+    height:70px;
     font-weight: bold;
     text-shadow: 3px 3px black;
   }
