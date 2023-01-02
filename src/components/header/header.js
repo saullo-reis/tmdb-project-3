@@ -14,7 +14,7 @@ export const Header = ({childToParent}) => {
         }
       })
     return(
-        <SectionHeader className="header">
+        <Section className="header">
         <Link to={"/"}>
           <H1>
             <img src={icon} />
@@ -29,11 +29,11 @@ export const Header = ({childToParent}) => {
           />
           <Link to={"/search"}><Button onClick={() => childToParent(data)}>Procurar</Button></Link>
         </div>
-      </SectionHeader>
+      </Section>
     )
 }
 
-const SectionHeader = styled.section`
+const Section = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -3,6 +3,7 @@ import { getUpcoming } from "./get";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../loading/loading";
+import {Button, Ul, Li, H4, SectionFilms, Div, H2, Box, Img} from "../../styles"
 
 export const Upcoming = () => {
   const [Upcoming, setUpcoming] = useState([]);
@@ -70,123 +71,6 @@ export const Upcoming = () => {
       </Div>
     </SectionFilms>
   );
-};
+}; 
 
-const Button = styled.button`
-  text-decoration: none;
-  font-weight: bold;
-  margin-bottom: 5px;
-  background-color: white;
-  border-radius: 20px;
-  color: black;
-  cursor: pointer;
-  box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-  padding: 0 5px 0 5px;
-  font-size: 30px;
-  transition: 1.2s;
-  :hover {
-    background-color: red;
-    color: white;
-  }
-`;
 
-const Box = styled.div`
-  border-radius: 10px;
-  height: 290px;
-  box-shadow: 5px 2px 2px black;
-  background-color: gray;
-  color: white;
-  font-weight: bold;
-  width: 193px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  p {
-    width: 50%;
-  }
-`;
-
-const Img = styled.img`
-  border-radius: 10px;
-  height: 290px;
-  box-shadow: 5px 2px 2px black;
-`;
-const SectionFilms = styled.section`
-  margin-bottom: 60px;
-  padding: 30px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-`;
-
-const Div = styled.div`
-    flex-flow:row wrap;
-    margin-bottom:5px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    h1{
-    text-align:center;
-    }
-    a{
-    text-decoration:none;
-    font-weight:bold;
-    margin-bottom:5px;
-    background-color:white;
-    border-radius:20px;
-    margin-left:20px;
-    color:black;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
-    padding:10px;
-    transition:1.2s;
-    :hover{
-        background-color:red;
-        color:white;
-    }
-`;
-
-const H2 = styled.h1`
-  font-size: 40px;
-  color: #ffffff;
-  margin: 20px 10px 20px 10px;
-  font-family: "Roboto", sans-serif;
-  letter-spacing: 2px;
-  text-shadow: 5px 2px 2px black;
-`;
-
-const Ul = styled.ul`
-  display: flex;
-  flex-flow: row wrap;
-  margin: 0;
-  justify-content: center;
-  align-items: center;
-  a {
-    text-decoration: none;
-  }
-`;
-const H4 = styled.p`
-  display: none;
-  color: white;
-  text-align: center;
-`;
-const Li = styled.li`
-  list-style: none;
-  width: 200px;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin: 10px;
-  margin-bottom: 30px;
-  cursor: pointer;
-  transition: 1.2s;
-  :hover {
-    filter: brightness(150%);
-    p {
-      display: block;
-      font-size: 15px;
-      font-weight: bold;
-    }
-  }
-`;
