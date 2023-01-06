@@ -3,7 +3,7 @@ import { getPopular } from "./get";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../loading/loading";
-import {Ul, Div, SectionFilms, H2, Li, Box, H4, Button, Img } from "../../styles"
+import {Ul, Div, SectionFilms, H2, Li, Box, H4, Button, Img, ImageBackground } from "../../styles"
 
 const Films = () => {
   const [filmsInAlt, setFilmsInAlt] = useState([]);
@@ -52,9 +52,11 @@ const Films = () => {
                       <p>Foto do filme não encontrada</p>
                     </Box>
                   ) : (
-                    <Img
-                      src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`}
-                    ></Img>
+                    <ImageBackground
+                      style={{
+                        backgroundImage: `url(https://image.tmdb.org/t/p/w200/${film.poster_path})`,
+                      }}
+                    ></ImageBackground>
                   )}
                 </Link>
                 <H4>{film.title}</H4>

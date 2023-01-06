@@ -43,6 +43,17 @@ export const Img = styled.img`
   }
 `;
 
+export const ImageBackground = styled.div`
+  width: 200px;
+  height: 300px;
+  border-radius:20px;
+  transition:1.1s;
+  :hover {
+    background-size: 205px;
+    filter: brightness(70%);
+  }
+`;
+
 export const SectionFilms = styled.section`
   margin-bottom: 60px;
   padding: 30px;

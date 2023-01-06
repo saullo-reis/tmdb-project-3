@@ -3,7 +3,18 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 import Loading from "../loading/loading";
-import {Button, Ul, Div, H2, SectionTopRated, Box, Img, H4, Li} from "../../styles"
+import {
+  Button,
+  Ul,
+  Div,
+  H2,
+  SectionTopRated,
+  Box,
+  Img,
+  H4,
+  Li,
+  ImageBackground,
+} from "../../styles";
 export const TopRated = () => {
   const [filmsTopRated, setTopRated] = useState([]);
   const [count, setCount] = useState(1);
@@ -53,9 +64,11 @@ export const TopRated = () => {
                         <p>Foto do filme não encontrada</p>
                       </Box>
                     ) : (
-                      <Img
-                        src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`}
-                      ></Img>
+                      <ImageBackground
+                        style={{
+                          backgroundImage: `url(https://image.tmdb.org/t/p/w200/${film.poster_path})`,
+                        }}
+                      ></ImageBackground>
                     )}
                   </Link>
                   <H4>{film.title}</H4>
@@ -73,4 +86,3 @@ export const TopRated = () => {
     </SectionTopRated>
   );
 };
-

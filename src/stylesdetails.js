@@ -115,6 +115,8 @@ export const PhotoAndInfos = styled.section`
   margin: 50px;
 `;
 
+
+
 export const PhotoAndName = styled.div`
   display: flex;
   flex-direction: column;

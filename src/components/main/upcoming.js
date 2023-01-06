@@ -3,7 +3,18 @@ import { getUpcoming } from "./get";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../loading/loading";
-import {Button, Ul, Li, H4, SectionFilms, Div, H2, Box, Img} from "../../styles"
+import {
+  Button,
+  Ul,
+  Li,
+  H4,
+  SectionFilms,
+  Div,
+  H2,
+  Box,
+  Img,
+  ImageBackground
+} from "../../styles";
 
 export const Upcoming = () => {
   const [Upcoming, setUpcoming] = useState([]);
@@ -52,9 +63,11 @@ export const Upcoming = () => {
                         <p>Foto do filme não encontrada</p>
                       </Box>
                     ) : (
-                      <Img
-                        src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`}
-                      ></Img>
+                      <ImageBackground
+                        style={{
+                          backgroundImage: `url(https://image.tmdb.org/t/p/w200/${film.poster_path})`,
+                        }}
+                      ></ImageBackground>
                     )}
                   </Link>
                   <H4>{film.title}</H4>
@@ -71,6 +84,4 @@ export const Upcoming = () => {
       </Div>
     </SectionFilms>
   );
-}; 
-
-
+};
