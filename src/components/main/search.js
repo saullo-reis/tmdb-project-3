@@ -3,6 +3,7 @@ import { getName } from "./get";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import Loading from "../loading/loading";
+import { ImageBackground } from "../../styles";
 
 export const Search = (data) => {
     const [films, setFilms] = useState([]);
@@ -36,9 +37,11 @@ export const Search = (data) => {
                           <p>Foto do filme não encontrada</p>
                         </Box>
                       ) : (
-                        <Img
-                          src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`}
-                        ></Img>
+                        <ImageBackground
+                          style={{
+                            backgroundImage: `url(https://image.tmdb.org/t/p/w200/${film.poster_path})`,
+                          }}
+                        ></ImageBackground>
                       )}
                     </Link>
                     <H4>{film.title}</H4>
