@@ -1,4 +1,6 @@
-#Projeto feito com a API do TMDB.
+# TMDB Project
+
+![tmdbgif](https://user-images.githubusercontent.com/93871055/217037232-6f390a06-04a2-40cf-b2dc-029da03d364d.gif)
 
 ## Como utilizar?
 
