@@ -18,4 +18,4 @@ Ao você clicar em um filme você vai ter os detalhes dele e algums filmes relac
 
 ## Créditos:
 
-feito por Saullo Reis dos Santos para praticar o ReactJs utilizando a API do TMDB.
+Feito por Saullo Reis dos Santos para praticar o ReactJs utilizando a API do TMDB.
