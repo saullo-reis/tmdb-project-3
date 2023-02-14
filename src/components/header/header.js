@@ -16,7 +16,7 @@ export const Header = ({childToParent}) => {
     return(
         <Section className="header">
         <Link to={"/"}>
-          <H1>
+          <H1 data-testid='logo'>
             <img src={icon} />
           </H1>
         </Link>
