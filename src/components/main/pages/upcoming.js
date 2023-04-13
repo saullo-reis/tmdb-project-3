@@ -1,8 +1,8 @@
 import styled from "styled-components";
-import { getUpcoming } from "./get";
+import { getUpcoming } from "../../../get";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Loading from "../loading/loading";
+import Loading from "../../loading/loading";
 import {
   Button,
   Ul,
@@ -12,9 +12,9 @@ import {
   Div,
   H2,
   Box,
-  Img,
   ImageBackground
-} from "../../styles";
+} from "../../../styles";
+import { Buttons } from "../buttons/buttons";
 
 export const Upcoming = () => {
   const [Upcoming, setUpcoming] = useState([]);
@@ -41,20 +41,13 @@ export const Upcoming = () => {
 
   return (
     <SectionFilms>
-      <Div>
-        <Link to={"/Upcoming"} style={{ background: "red", color: "white" }}>
-          Lançamento
-        </Link>
-        <Link to={"/emAlta"}>Filmes em Alta</Link>
-        <Link to={"/bemRanqueados"}>Filmes bem ranqueados</Link>
-      </Div>
+      <Buttons actualPage={"upComing"}/>
       <Div>
         <H2>Filmes em Lançamento</H2>
       </Div>
       <Ul>
         {Upcoming.length > 0 &&
           Upcoming.map((film, index) => {
-            {
               return (
                 <Li key={index}>
                   <Link to={`/movie/${film.id}`}>
@@ -73,7 +66,6 @@ export const Upcoming = () => {
                   <H4>{film.title}</H4>
                 </Li>
               );
-            }
           })}
         {!removeLoading && <Loading />}
       </Ul>

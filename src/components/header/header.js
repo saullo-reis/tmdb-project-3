@@ -1,12 +1,9 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import styled from "styled-components";
-import icon from "../../assets/images/icone.png";
 import { Link } from "react-router-dom";
 
 export const Header = ({childToParent}) => {
-
-    const [name, setName] = useState("");
-    const [data, setData] = useState(name);
+    const [data, setData] = useState("");
 
     document.addEventListener("keypress", function (enter) {
         if (enter.key === "Enter") {
@@ -17,7 +14,7 @@ export const Header = ({childToParent}) => {
         <Section className="header">
         <Link to={"/"}>
           <H1 data-testid='logo'>
-            <img src={icon} />
+            <img alt="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Tmdb-312x276-logo.png" />
           </H1>
         </Link>
         <div>
@@ -37,8 +34,9 @@ const Section = styled.section`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(#000000, #363434);
+  background: #000;
   padding: 20px;
+  border-bottom: solid .1px gray;
   a {
     text-decoration: none;
   }
@@ -50,20 +48,11 @@ const H1 = styled.h1`
   color: #ffffff;
   margin-left: 10px;
   font-family: "Roboto", sans-serif;
-  letter-spacing: 2px;
-  border-radius: 900px;
   width: 100px;
-  padding: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: 1.1s;
-  background-color: white;
   cursor: pointer;
-  box-shadow: 5px 2px 2px black;
-  :hover {
-    background-color: red;
-  }
   img {
     width: 100px;
   }
@@ -84,14 +73,15 @@ const Button = styled.button`
   :hover {
     transform: scale(1.1, 1.1);
     color: white;
-    background-color: red;
+    background-color: #00BFFF;
   }
 `;
 
 const InputStyle = styled.input`
   height: 30px;
   width: 60%;
-  border: solid white 2px;
+  border: solid #00BFFF 1px;
+  border-radius: 8px;
   margin-right: 10px;
   padding: 5px;
   background-color: black;
@@ -99,5 +89,8 @@ const InputStyle = styled.input`
   color: white;
   target: {
     border: white 3px solid;
+  }
+  ::placeholder{
+    color: white;
   }
 `;

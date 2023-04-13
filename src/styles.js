@@ -22,7 +22,7 @@ export const Box = styled.div`
   border-radius: 10px;
   height: 290px;
   box-shadow: 5px 2px 2px black;
-  background-color: gray;
+  background-color: #000;
   color: white;
   font-weight: bold;
   width: 193px;
@@ -69,20 +69,16 @@ export const Div = styled.div`
     text-align:center;
     }
     a{
+    text-shadow: 2px 2px 15px black;
     text-decoration:none;
     font-weight:bold;
     margin-bottom:5px;
     background-color:white;
-    border-radius:20px;
+    border-radius:8px;
     margin-left:20px;
     color:black;
-    box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2);
     padding:10px;
     transition:1.2s;
-    :hover{
-        background-color:red;
-        color:white;
-    }
 `;
 
 export const H2 = styled.h1`

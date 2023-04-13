@@ -12,13 +12,14 @@ export const Fotter = () => {
 };
 
 const Section = styled.section`
-  background: linear-gradient(#363434, #000000);
+  background-color: #000;
   color: #4f4f4f;
-  height: 100px;
-  padding: 10px;
+  height: 80px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-end;
+  border-top: solid 1px gray;
 `;
 
 const P = styled.p`

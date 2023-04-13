@@ -13,7 +13,6 @@ export const Box = styled.div`
   border-radius: 10px;
   height: 290px;
   box-shadow: 5px 2px 2px black;
-  background-color: gray;
   color: white;
   font-weight: bold;
   width: 193px;
@@ -101,7 +100,6 @@ export const SectionSimilar = styled.section`
 `
 
 export const Section = styled.section`
-  color: white;
   display: flex;
   flex-direction: column;
   margin: 50px;
@@ -114,8 +112,6 @@ export const PhotoAndInfos = styled.section`
   align-items: center;
   margin: 50px;
 `;
-
-
 
 export const PhotoAndName = styled.div`
   display: flex;

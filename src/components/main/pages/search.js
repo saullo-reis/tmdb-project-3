@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import { getName } from "./get";
+import { getName } from "../../../get";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Loading from "../loading/loading";
-import { ImageBackground } from "../../styles";
+import Loading from "../../loading/loading";
+import { ImageBackground } from "../../../styles";
 
 export const Search = (data) => {
     const [films, setFilms] = useState([]);
@@ -12,7 +12,7 @@ export const Search = (data) => {
     useEffect(() => {
         setTimeout(() => {
           const fetchData = async () => {
-            if (data.data != "") {
+            if (data.data !== "") {
               const Film = await getName(data.data);
               setFilms(Film.results);
               setRemoveLoading(true)
@@ -68,12 +68,6 @@ const Box = styled.div`
   p {
     width: 50%;
   }
-`;
-
-const Img = styled.img`
-  border-radius: 10px;
-  height: 290px;
-  box-shadow: 5px 2px 2px black;
 `;
 
 const H2 = styled.h1`

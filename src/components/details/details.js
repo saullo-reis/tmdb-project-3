@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { getMovie, getSimilarMovie } from "../main/get";
+import { getMovie, getSimilarMovie } from "../../get";
 import { useParams} from "react-router-dom";
-import {Section, PhotoAndInfos, PhotoAndName, Container, Gen, OverView, Production, Division, Infos, SectionSimilar, H2, Ul, Li, Box, Img, H4}from "../../stylesdetails";
+import {Section, PhotoAndInfos, PhotoAndName, Container, Gen, OverView, Production, Division, Infos, SectionSimilar, H2, Ul, Li, Box, Img, H4}from "./style/stylesdetails";
 import { Link } from "react-router-dom";
 import "./media.css"
 

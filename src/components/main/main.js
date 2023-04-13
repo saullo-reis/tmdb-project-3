@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 import "./media.css";
 import { useState, useEffect } from "react";
-import { getUpcoming } from "./get";
+import { getUpcoming } from "../../get";
 import {
   Box,
-  Img,
   H4,
   Li,
   Section,
@@ -12,6 +11,7 @@ import {
   Div,
   ImageBackground,
 } from "../../styles";
+import { Buttons } from "./buttons/buttons";
 
 
 const Main = () => {
@@ -26,14 +26,9 @@ const Main = () => {
   }, []);
   return (
     <Section>
-      <Div>
-        <Link to={"/Upcoming"}>Lançamento</Link>
-        <Link to={"/emAlta"}>Filmes em Alta</Link>
-        <Link to={"/bemRanqueados"}>Filmes bem ranqueados</Link>
-      </Div>
+      <Buttons actualPage={"main"}/>
       <Ul>
         {Upcoming.map((film, index) => {
-          {
             return (
               <Li key={index}>
                 <Link to={`/movie/${film.id}`}>
@@ -52,7 +47,6 @@ const Main = () => {
                 <H4>{film.title}</H4>
               </Li>
             );
-          }
         })}
       </Ul>
     </Section>
