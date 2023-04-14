@@ -1,6 +1,6 @@
 # TMDB Project
 
-![tmdbgif](https://user-images.githubusercontent.com/93871055/217037232-6f390a06-04a2-40cf-b2dc-029da03d364d.gif)
+![TMDBGIFtes](https://user-images.githubusercontent.com/93871055/232068371-21697ea1-a3bf-40dc-8257-9b2dbe17d059.gif)
 
 ## Como utilizar?
 
