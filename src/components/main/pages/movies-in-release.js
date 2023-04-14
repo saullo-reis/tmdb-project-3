@@ -71,9 +71,9 @@ export const Upcoming = () => {
         {!removeLoading && <Loading />}
       </Ul>
       <Pages>
-        <button onClick={() => handleClick('down')}><AiOutlineArrowRight/></button>
+        <button onClick={() => handleClick('down')}><AiOutlineArrowLeft/></button>
         <H2>{count}</H2>
-        <button onClick={() => handleClick('up')}><AiOutlineArrowLeft/></button>
+        <button onClick={() => handleClick('up')}><AiOutlineArrowRight/></button>
       </Pages>
     </SectionFilms>
   );
