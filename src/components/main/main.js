@@ -12,25 +12,31 @@ import {
 } from "../../styles";
 import { Buttons } from "./buttons/buttons";
 import "../../animation.css"
+import { Loading } from "../loading/loading";
 
 const Main = () => {
   const [Upcoming, setUpcoming] = useState([]);
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getPopular();
-      setUpcoming(response.results);
+      setTimeout(async () => {
+        const response = await getPopular();
+        setUpcoming(response.results);
+        setIsLoading(false)
+      }, 300)
     };
     fetchData();
   }, []);
-  
+
   return (
     <Section>
-      <Buttons actualPage={"main"}/>
-      <Ul>
-        {Upcoming.map((film, index) => {
+      {isLoading === true ? <Loading /> : <>
+        <Buttons actualPage={"main"} />
+        <Ul>
+          {Upcoming.map((film, index) => {
             return (
-              <Li className="cards" key={index} style={{animationDelay: `${0.2 * index}s`}}>
+              <Li className="cards" key={index} style={{ animationDelay: `${0.2 * index}s` }}>
                 <Link to={`/movie/${film.id}`}>
                   {film.poster_path === null ? (
                     <Box>
@@ -47,9 +53,11 @@ const Main = () => {
                 <H4>{film.title}</H4>
               </Li>
             );
-        })}
-      </Ul>
+          })}
+        </Ul>
+      </>}
     </Section>
+
   );
 };
 

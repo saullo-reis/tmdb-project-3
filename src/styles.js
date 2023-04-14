@@ -121,7 +121,8 @@ export const Section = styled.section`
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  padding:150px 0
+  padding:150px 0;
+  min-height400px;
 `
 
 export const SectionTopRated = styled.section`
