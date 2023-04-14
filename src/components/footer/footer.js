@@ -19,7 +19,6 @@ const Section = styled.section`
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
-  border-top: solid 1px gray;
 `;
 
 const P = styled.p`

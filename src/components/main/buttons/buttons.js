@@ -9,7 +9,7 @@ export const Buttons = (actualPage) => {
         }
         return "white"
     }
-    console.log(actualPage)
+    
     return(
         <Div>
             <Link to={"/Upcoming"} style={{ backgroundColor: colors('upComing') }}>Lançamento</Link>

@@ -1,33 +1,57 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { AiOutlineSearch } from 'react-icons/ai'
+import { useNavigate } from "react-router-dom";
+import "./animation.css"
 
-export const Header = ({childToParent}) => {
-    const [data, setData] = useState("");
+export const Header = ({ childToParent }) => {
+  const [data, setData] = useState("");
+  const navigate = useNavigate()
+  const [showInput, setShowInput] = useState(false)
 
-    document.addEventListener("keypress", function (enter) {
-        if (enter.key === "Enter") {
-            childToParent(data);
-        }
-      })
-    return(
-        <Section className="header">
-        <Link to={"/"}>
-          <H1 data-testid='logo'>
-            <img alt="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Tmdb-312x276-logo.png" />
-          </H1>
-        </Link>
-        <div>
-          <InputStyle
-            value={data}
-            onChange={(e) => setData(e.target.value)}
-            type="text"
-            placeholder="Título do filme"
-          />
-          <Link to={"/search"}><Button onClick={() => childToParent(data)}>Procurar</Button></Link>
-        </div>
-      </Section>
-    )
+  document.addEventListener("keypress", function (enter) {
+    if (enter.key === "Enter") {
+      childToParent(data);
+      navigate('/search')
+    }
+  })
+
+  function buttonClick(){
+    childToParent(data)
+    navigate('/search')
+  }
+
+  function handleClick() {
+    if(showInput === false){
+      setShowInput(true)
+    }
+    else{
+      setShowInput(false)
+    }
+  }
+
+  return (
+    <Section className="header">
+      <Link to={"/"}>
+        <H1 data-testid='logo'>
+          <img alt="logo" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Tmdb-312x276-logo.png" />
+        </H1>
+      </Link>
+      <div className="search">
+        <AiOutlineSearch onClick={() => { handleClick() }} />
+        <InputStyle
+          style={{display: showInput === true ? "block" : "none"}}
+          className="input"
+          value={data}
+          onChange={(e) => setData(e.target.value)}
+          type="text"
+          placeholder="Título do filme"
+        />
+        <Button onClick={() => buttonClick()}>Procurar</Button>
+      </div>
+    </Section>
+  )
 }
 
 const Section = styled.section`
@@ -36,9 +60,23 @@ const Section = styled.section`
   align-items: center;
   background: #000;
   padding: 20px;
-  border-bottom: solid .1px gray;
   a {
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .search{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    svg{
+      color: white;
+      font-size: 30px;
+      padding: 2px;
+      border-radius: 100%;
+      cursor: pointer;
+    }
   }
 `;
 
@@ -63,10 +101,7 @@ const Button = styled.button`
   border: none;
   cursor: pointer;
   font-weight: bold;
-  margin-top:10px;
-  margin-bottom:30px;
   padding: 10px;
-  height: 40px;
   color: black;
   background-color: white;
   transition: 1.2s;
@@ -80,8 +115,8 @@ const Button = styled.button`
 const InputStyle = styled.input`
   height: 30px;
   width: 60%;
-  border: solid #00BFFF 1px;
-  border-radius: 8px;
+  border: solid white 1px;
+  border-radius: 5px;
   margin-right: 10px;
   padding: 5px;
   background-color: black;
