@@ -2,14 +2,14 @@ import { getPopular } from "../../../get";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Loading } from "../../loading/loading";
-import { Ul, Div, SectionFilms, H2, Li, Box, H4, Pages, ImageBackground } from "../../../styles"
+import { Ul, Div, Section, H2, Li, Box, H4, Pages, ImageBackground } from "../../../styles"
 import { Buttons } from "../buttons/buttons";
 import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai'
 
 const Films = () => {
   const [filmsInAlt, setFilmsInAlt] = useState([]);
   const [count, setCount] = useState(1);
-  const [removeLoading, setRemoveLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = (action) => {
     if (action === 'up') {
@@ -24,14 +24,14 @@ const Films = () => {
       const fetchData = async () => {
         const response = await getPopular(count);
         setFilmsInAlt(response.results);
-        setRemoveLoading(true)
+        setIsLoading(true)
       };
       fetchData();
     }, 300);
   }, [count]);
 
   return (
-    <SectionFilms>
+    <Section>
       <Buttons actualPage="emAlta" />
       <Div>
         <H2>Filmes Em Alta</H2>
@@ -57,14 +57,14 @@ const Films = () => {
             </Li>
           );
         })}
-        {!removeLoading && <Loading />}
+        {!isLoading && <Loading />}
       </Ul>
       <Pages>
         <button onClick={() => handleClick('down')}><AiOutlineArrowLeft /></button>
         <H2>{count}</H2>
         <button onClick={() => handleClick('up')}><AiOutlineArrowRight /></button>
       </Pages>
-    </SectionFilms>
+    </Section>
   );
 };
 

@@ -2,18 +2,19 @@ import { useState, useEffect } from "react";
 import { getName } from "../../../get";
 import { Link } from "react-router-dom";
 import { Loading } from "../../loading/loading";
-import { ImageBackground, Section } from "../../../styles";
 import {
   Ul,
   H2,
   Box,
   H4,
   Li,
+  ImageBackground, 
+  Section
 } from "../../../styles";
 
 export const Search = (data) => {
   const [films, setFilms] = useState([]);
-  const [removeLoading, setRemoveLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
     setTimeout(() => {
@@ -21,7 +22,7 @@ export const Search = (data) => {
         if (data.data !== "") {
           const Film = await getName(data.data);
           setFilms(Film.results);
-          setRemoveLoading(true)
+          setIsLoading(true)
         } else {
           return;
         }
@@ -54,7 +55,7 @@ export const Search = (data) => {
             </Li>
           );
         })}
-        {!removeLoading && <Loading />}
+        {!isLoading && <Loading />}
       </Ul>
     </Section>
   )

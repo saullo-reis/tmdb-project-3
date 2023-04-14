@@ -8,7 +8,7 @@ import {
   Ul,
   Pages,
   H2,
-  SectionTopRated,
+  Section,
   Box,
   H4,
   Li,
@@ -17,7 +17,7 @@ import {
 export const TopRated = () => {
   const [filmsTopRated, setTopRated] = useState([]);
   const [count, setCount] = useState(1);
-  const [removeLoading, setRemoveLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = (action) => {
     if (action === 'up') {
@@ -32,14 +32,14 @@ export const TopRated = () => {
       const fetchData = async () => {
         const response = await getTopRated(count);
         setTopRated(response.results);
-        setRemoveLoading(true);
+        setIsLoading(true);
       };
       fetchData();
     }, 300);
   }, [count]);
 
   return (
-    <SectionTopRated>
+    <Section>
       <Buttons actualPage={"topRated"} />
       <H2>Filmes bem ranqueados</H2>
       <Ul>
@@ -64,13 +64,13 @@ export const TopRated = () => {
               </Li>
             );
           })}
-        {!removeLoading && <Loading />}
+        {!isLoading && <Loading />}
       </Ul>
       <Pages>
         <button onClick={() => handleClick('down')}><AiOutlineArrowLeft /></button>
         <H2>{count}</H2>
         <button onClick={() => handleClick('up')}><AiOutlineArrowRight /></button>
       </Pages>
-    </SectionTopRated>
+    </Section>
   );
 };

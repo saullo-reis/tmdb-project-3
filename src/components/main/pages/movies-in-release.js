@@ -8,7 +8,7 @@ import {
   Ul,
   Li,
   H4,
-  SectionFilms,
+  Section,
   Div,
   H2,
   Box,
@@ -19,7 +19,7 @@ import { Buttons } from "../buttons/buttons";
 export const Upcoming = () => {
   const [Upcoming, setUpcoming] = useState([]);
   const [count, setCount] = useState(1);
-  const [removeLoading, setRemoveLoading] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleClick = (action) => {
     if (action === 'up') {
@@ -34,14 +34,14 @@ export const Upcoming = () => {
       const fetchData = async () => {
         const response = await getUpcoming(count);
         setUpcoming(response.results);
-        setRemoveLoading(true);
+        setIsLoading(true);
       };
       fetchData();
     }, 300);
   }, [count]);
 
   return (
-    <SectionFilms>
+    <Section>
       <Buttons actualPage={"upComing"} />
       <Div>
         <H2>Filmes em Lançamento</H2>
@@ -68,14 +68,14 @@ export const Upcoming = () => {
               </Li>
             );
           })}
-        {!removeLoading && <Loading />}
+        {!isLoading && <Loading />}
       </Ul>
       <Pages>
         <button onClick={() => handleClick('down')}><AiOutlineArrowLeft /></button>
         <H2>{count}</H2>
         <button onClick={() => handleClick('up')}><AiOutlineArrowRight /></button>
       </Pages>
-    </SectionFilms>
+    </Section>
   );
 };
 

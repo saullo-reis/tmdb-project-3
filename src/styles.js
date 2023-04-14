@@ -122,7 +122,7 @@ export const Section = styled.section`
   align-items:center;
   justify-content:center;
   padding:150px 0;
-  min-height400px;
+  min-height: 400px;
 `
 
 export const SectionTopRated = styled.section`
