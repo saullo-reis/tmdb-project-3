@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Loading }from "../../loading/loading";
 import { Buttons } from "../buttons/buttons";
+import { AiOutlineArrowRight, AiOutlineArrowLeft } from 'react-icons/ai'
 import {
   Ul,
   Pages,
@@ -25,7 +26,7 @@ export const TopRated = () => {
     }
     setCount(count - 1);
   }
-  
+
   useEffect(() => {
     setTimeout(() => {
       const fetchData = async () => {
@@ -66,9 +67,9 @@ export const TopRated = () => {
         {!removeLoading && <Loading />}
       </Ul>
       <Pages>
-        <button onClick={() => handleClick('down')}>←</button>
+        <button onClick={() => handleClick('down')}><AiOutlineArrowLeft /></button>
         <H2>{count}</H2>
-        <button onClick={() => handleClick('up')}>→</button>
+        <button onClick={() => handleClick('up')}><AiOutlineArrowRight /></button>
       </Pages>
     </SectionTopRated>
   );

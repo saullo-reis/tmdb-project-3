@@ -22,7 +22,6 @@ const Details = () => {
     fetchData();
   }, [id]);
 
-  console.log(id)
   useEffect(() => {
     const fetchData = async () => {
       const response = await getSimilarMovie(id);
@@ -31,6 +30,7 @@ const Details = () => {
     };
     fetchData();
   }, []);
+  
   return (
     <>
       <Section >
