@@ -17,7 +17,7 @@ export const Header = ({ childToParent }) => {
     }
   })
 
-  function buttonClick(){
+  function searchClick(){
     childToParent(data)
     navigate('/search')
   }
@@ -48,7 +48,7 @@ export const Header = ({ childToParent }) => {
           type="text"
           placeholder="Título do filme"
         />
-        <Button style={{ display: showInput === true ? "block" : "none" }} onClick={() => buttonClick()}>Procurar</Button>
+        <Button style={{ display: showInput === true ? "block" : "none" }} onClick={() => searchClick()}>Procurar</Button>
       </div>
     </Section>
   )

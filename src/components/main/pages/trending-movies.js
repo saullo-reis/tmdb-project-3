@@ -12,7 +12,7 @@ const Films = () => {
   const [removeLoading, setRemoveLoading] = useState(false);
 
   const handleClick = (action) => {
-    if(action === 'up'){
+    if (action === 'up') {
       setCount(count + 1);
       return
     }

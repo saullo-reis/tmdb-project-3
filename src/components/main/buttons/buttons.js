@@ -3,7 +3,7 @@ import { Div} from "../../../styles"
 
 export const Buttons = (actualPage) => {
 
-    function colors(page){
+    function changeColors(page){
         if(page === actualPage.actualPage){
             return "#00BFFF"
         }
@@ -12,11 +12,11 @@ export const Buttons = (actualPage) => {
 
     return(
         <Div>
-            <Link to={"/MoviesInRelease"} style={{ backgroundColor: colors('upComing') }}>Lançamento</Link>
-            <Link to={"/TrendingMovies"} style={{ backgroundColor: colors('emAlta') }}>
+            <Link to={"/MoviesInRelease"} style={{ backgroundColor: changeColors('upComing') }}>Lançamento</Link>
+            <Link to={"/TrendingMovies"} style={{ backgroundColor: changeColors('emAlta') }}>
                 Filmes em Alta
             </Link>
-            <Link to={"/RankedMovies"} style={{ backgroundColor: colors('topRated') }}>Filmes bem ranqueados</Link>
+            <Link to={"/RankedMovies"} style={{ backgroundColor: changeColors('topRated') }}>Filmes bem ranqueados</Link>
         </Div>
     )
 }

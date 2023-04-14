@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./media.css";
 import { useState, useEffect } from "react";
-import { getPopular, getUpcoming } from "../../get";
+import { getPopular } from "../../get";
 import {
   Box,
   H4,
@@ -23,6 +23,7 @@ const Main = () => {
     };
     fetchData();
   }, []);
+  
   return (
     <Section>
       <Buttons actualPage={"main"}/>

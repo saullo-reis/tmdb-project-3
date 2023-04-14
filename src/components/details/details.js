@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { getMovie, getSimilarMovie } from "../../get";
-import { useParams} from "react-router-dom";
-import {Section, PhotoAndInfos, PhotoAndName, Container, Gen, OverView, Production, Division, Infos, SectionSimilar, H2, Ul, Li, Box, Img, H4}from "./style/stylesdetails";
+import { useParams } from "react-router-dom";
+import { Section, PhotoAndInfos, PhotoAndName, Container, Gen, OverView, Production, Division, Infos, SectionSimilar, H2, Ul, Li, Box, Img, H4 } from "./style/stylesdetails";
 import { Link } from "react-router-dom";
 import "./media.css"
 
@@ -102,21 +102,21 @@ const Details = () => {
           <H2>Filmes Similares</H2>
           <Ul>
             {similarMovies.map((film, index) => {
-                return (
-                  <Li key={index}>
-                    <Link to={`/movie/${film.id}`}>
-                      {film.poster_path == null ? (
-                        <Box>
-                          <p>Foto do filme não encontrada</p>
-                        </Box>
-                      ) : (
-                        <Img
-                          src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`}
-                        ></Img>
-                      )}
-                    </Link>
-                  </Li>
-                );
+              return (
+                <Li key={index}>
+                  <Link to={`/movie/${film.id}`}>
+                    {film.poster_path == null ? (
+                      <Box>
+                        <p>Foto do filme não encontrada</p>
+                      </Box>
+                    ) : (
+                      <Img
+                        src={`https://image.tmdb.org/t/p/w200/${film.poster_path}`}
+                      ></Img>
+                    )}
+                  </Link>
+                </Li>
+              );
             })}
           </Ul>
         </SectionSimilar>
