@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./media.css";
 import { useState, useEffect } from "react";
-import { getUpcoming } from "../../get";
+import { getPopular, getUpcoming } from "../../get";
 import {
   Box,
   H4,
@@ -18,7 +18,7 @@ const Main = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await getUpcoming();
+      const response = await getPopular();
       setUpcoming(response.results);
     };
     fetchData();

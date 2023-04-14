@@ -1,8 +1,8 @@
 import { getPopular } from "../../../get";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import {Loading} from "../../loading/loading";
-import { Ul, Div, SectionFilms, H2, Li, Box, H4, Button, ImageBackground } from "../../../styles"
+import { Loading } from "../../loading/loading";
+import { Ul, Div, SectionFilms, H2, Li, Box, H4, Pages, ImageBackground } from "../../../styles"
 import { Buttons } from "../buttons/buttons";
 
 const Films = () => {
@@ -10,14 +10,14 @@ const Films = () => {
   const [count, setCount] = useState(1);
   const [removeLoading, setRemoveLoading] = useState(false);
 
-  const voltarPagina = () => {
-    if (count !== 1) {
-      setCount(count - 1);
+  const handleClick = (action) => {
+    if(action === 'up'){
+      setCount(count + 1);
+      return
     }
-  };
-  const avancarPagina = () => {
-    setCount(count + 1);
-  };
+    setCount(count - 1);
+  }
+
   useEffect(() => {
     setTimeout(() => {
       const fetchData = async () => {
@@ -31,7 +31,7 @@ const Films = () => {
 
   return (
     <SectionFilms>
-      <Buttons actualPage="emAlta"/>
+      <Buttons actualPage="emAlta" />
       <Div>
         <H2>Filmes Em Alta</H2>
       </Div>
@@ -58,11 +58,11 @@ const Films = () => {
         })}
         {!removeLoading && <Loading />}
       </Ul>
-      <Div>
-        <Button onClick={() => voltarPagina()}>←</Button>
+      <Pages>
+        <button onClick={() => handleClick('down')}>←</button>
         <H2>{count}</H2>
-        <Button onClick={() => avancarPagina()}>→</Button>
-      </Div>
+        <button onClick={() => handleClick('up')}>→</button>
+      </Pages>
     </SectionFilms>
   );
 };

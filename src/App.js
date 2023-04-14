@@ -3,12 +3,12 @@ import { Fotter } from "./components/footer/footer";
 import {Route, Routes } from "react-router-dom";
 import Main from "./components/main/main";
 import {Details} from './components/details/details'
-import Films from "./components/main/pages/films";
+import Films from "./components/main/pages/trending-movies";
 import { Header } from "./components/header/header";
-import { TopRated } from "./components/main/pages/toprated";
+import { TopRated } from "./components/main/pages/ranked-movies";
 import { Search } from "./components/main/pages/search";
 import { useState } from "react";
-import { Upcoming } from "./components/main/pages/upcoming";
+import { Upcoming } from "./components/main/pages/movies-in-release";
 
 function App() {
   const [data, setData] = useState('');
@@ -23,11 +23,11 @@ function App() {
       <GlobalStyle />
       <Routes>
         <Route path="/" element={<Main/>}/>
-        <Route path="/emAlta" element={<Films/>}/>
-        <Route path="/bemRanqueados" element={<TopRated/>}/>
-        <Route path="/search" element={<Search data={data}/>}/>
+        <Route path="/TrendingMovies" element={<Films/>}/>
+        <Route path="/RankedMovies" element={<TopRated/>}/>
+        <Route path="/Search" element={<Search data={data}/>}/>
         <Route path="/movie/:id" element={<Details/>}/>
-        <Route path="/upcoming" element={<Upcoming/>}/>
+        <Route path="/MoviesInRelease" element={<Upcoming/>}/>
       </Routes>
       <Fotter />
     </>  

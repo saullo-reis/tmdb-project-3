@@ -9,14 +9,14 @@ export const Buttons = (actualPage) => {
         }
         return "white"
     }
-    
+
     return(
         <Div>
-            <Link to={"/Upcoming"} style={{ backgroundColor: colors('upComing') }}>Lançamento</Link>
-            <Link to={"/emAlta"} style={{ backgroundColor: colors('emAlta') }}>
+            <Link to={"/MoviesInRelease"} style={{ backgroundColor: colors('upComing') }}>Lançamento</Link>
+            <Link to={"/TrendingMovies"} style={{ backgroundColor: colors('emAlta') }}>
                 Filmes em Alta
             </Link>
-            <Link to={"/bemRanqueados"} style={{ backgroundColor: colors('topRated') }}>Filmes bem ranqueados</Link>
+            <Link to={"/RankedMovies"} style={{ backgroundColor: colors('topRated') }}>Filmes bem ranqueados</Link>
         </Div>
     )
 }

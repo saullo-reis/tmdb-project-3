@@ -154,3 +154,22 @@ p{
     }
 }
 `;
+
+export const Pages = styled.div`
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  button{
+    font-size: 40px;
+    border: none;
+    display:flex;
+    align-items:center;
+    cursor: pointer;
+    transition: .7s;
+    justify-content:center;
+    &:hover{
+      background-color: #00BFFF;
+    }
+  }
+
+`

@@ -48,7 +48,7 @@ export const Header = ({ childToParent }) => {
           type="text"
           placeholder="Título do filme"
         />
-        <Button onClick={() => buttonClick()}>Procurar</Button>
+        <Button style={{ display: showInput === true ? "block" : "none" }} onClick={() => buttonClick()}>Procurar</Button>
       </div>
     </Section>
   )

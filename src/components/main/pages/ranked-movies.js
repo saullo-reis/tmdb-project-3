@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import { Loading }from "../../loading/loading";
 import { Buttons } from "../buttons/buttons";
 import {
-  Button,
   Ul,
-  Div,
+  Pages,
   H2,
   SectionTopRated,
   Box,
@@ -19,14 +18,14 @@ export const TopRated = () => {
   const [count, setCount] = useState(1);
   const [removeLoading, setRemoveLoading] = useState(false);
 
-  const voltarPagina = () => {
-    if (count != 1) {
-      setCount(count - 1);
+  const handleClick = (action) => {
+    if (action === 'up') {
+      setCount(count + 1);
+      return
     }
-  };
-  const avancarPagina = () => {
-    setCount(count + 1);
-  };
+    setCount(count - 1);
+  }
+  
   useEffect(() => {
     setTimeout(() => {
       const fetchData = async () => {
@@ -66,11 +65,11 @@ export const TopRated = () => {
           })}
         {!removeLoading && <Loading />}
       </Ul>
-      <Div>
-        <Button onClick={() => voltarPagina()}>←</Button>
+      <Pages>
+        <button onClick={() => handleClick('down')}>←</button>
         <H2>{count}</H2>
-        <Button onClick={() => avancarPagina()}>→</Button>
-      </Div>
+        <button onClick={() => handleClick('up')}>→</button>
+      </Pages>
     </SectionTopRated>
   );
 };
