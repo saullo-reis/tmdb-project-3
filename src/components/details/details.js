@@ -18,19 +18,13 @@ const Details = () => {
       setFilm(filmDetails);
       setGeneros(filmDetails.genres);
       setProduction(filmDetails.production_companies);
+
+      const similarMovies = await getSimilarMovie(id)
+      setSimilarMovie(similarMovies.results)
     };
     fetchData();
   }, [id]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const response = await getSimilarMovie(id);
-      console.log(response);
-      setSimilarMovie(response.results);
-    };
-    fetchData();
-  }, []);
-  
   return (
     <>
       <Section >
@@ -38,7 +32,7 @@ const Details = () => {
           <PhotoAndName>
             <h1>{film.title}</h1>
             <img
-              src={`https://image.tmdb.org/t/p/w400/${film.poster_path}`}
+              alt="movie-pic" src={`https://image.tmdb.org/t/p/w400/${film.poster_path}`}
             ></img>
           </PhotoAndName>
           <Container className="container">
@@ -54,7 +48,7 @@ const Details = () => {
               <h2>Sinopse ⇩</h2>
               <div className="div">
                 <p>
-                  {film.overview == "" ? (
+                  {film.overview === "" ? (
                     <p>Sinopse não informada</p>
                   ) : (
                     <p>{film.overview}</p>
@@ -73,11 +67,11 @@ const Details = () => {
                 {production.map((element) => {
                   return (
                     <>
-                      {element.length == 0 ? (
+                      {element.length === 0 ? (
                         <p>Produção não informada</p>
                       ) : (
                         <img
-                          src={`https://image.tmdb.org/t/p/w200/${element.logo_path}`}
+                          alt="production-pic" src={`https://image.tmdb.org/t/p/w200/${element.logo_path}`}
                         ></img>
                       )}
                     </>
@@ -88,12 +82,12 @@ const Details = () => {
             <Division />
             <Infos>
               <h3>
-                {film.adult == false
+                {film.adult === false
                   ? "Não é um filme adulto."
                   : "É um filme adulto"}
               </h3>
               <h3>
-                {film.status == "Released"
+                {film.status === "Released"
                   ? "Filme já Lançado"
                   : "Filme não Lançado"}
               </h3>
@@ -108,7 +102,6 @@ const Details = () => {
           <H2>Filmes Similares</H2>
           <Ul>
             {similarMovies.map((film, index) => {
-              {
                 return (
                   <Li key={index}>
                     <Link to={`/movie/${film.id}`}>
@@ -122,10 +115,8 @@ const Details = () => {
                         ></Img>
                       )}
                     </Link>
-                    <H4>{film.title}</H4>
                   </Li>
                 );
-              }
             })}
           </Ul>
         </SectionSimilar>

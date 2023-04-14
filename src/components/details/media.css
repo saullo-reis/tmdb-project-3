@@ -29,17 +29,17 @@
 @media (max-width: 470px){
     .container .production .div{
         position: absolute;
-        top: 890px;
+        top: 840px;
         width:50%;
     }
     .container .overview .div{
         position: absolute;
-        top: 850px;
+        top: 780px;
         width:50%;
     }
     .container .genre .div{
         position: absolute;
-        top: 810px;
+        top: 700px;
         width:50%;
     }
 }

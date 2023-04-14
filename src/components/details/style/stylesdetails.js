@@ -160,6 +160,7 @@ export const Production = styled.div`
   h2 {
     text-shadow: 3px 3px black;
     transition: 1.7s;
+    text-align: center;
   }
   img {
     margin: 10px;
@@ -178,7 +179,7 @@ export const Production = styled.div`
       padding: 20px;
     }
     h2 {
-      color: red;
+      color: #00BFFF;
     }
   }
 `;
@@ -195,6 +196,7 @@ export const OverView = styled.div`
     cursor: pointer;
     text-shadow: 3px 3px black;
     transition: 1.7s;
+    text-align: center;
   }
   div {
     display: none;
@@ -207,7 +209,7 @@ export const OverView = styled.div`
       align-items: center;
       justify-content: center;
       position: absolute;
-      top: 450px;
+      top: 420px;
       color: black;
       z-index: 2;
       background-color: white;
@@ -215,7 +217,7 @@ export const OverView = styled.div`
       font-weight: bold;
     }
     h2 {
-      color: red;
+      color: #00BFFF;
     }
   }
 `;
@@ -229,6 +231,7 @@ export const Gen = styled.div`
   h2 {
     transition: 1.7s;
     text-shadow: 3px 3px black;
+    text-align: center;
   }
   div {
     display: none;
@@ -240,7 +243,7 @@ export const Gen = styled.div`
       align-items: center;
       flex-direction: column;
       position: absolute;
-      top: 410px;
+      top: 350px;
       z-index: 2;
       background-color: white;
       color: black;
@@ -248,7 +251,7 @@ export const Gen = styled.div`
       font-weight: bold;
     }
     h2 {
-      color: red;
+      color: #00BFFF;
     }
   }
 `;
