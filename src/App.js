@@ -1,6 +1,4 @@
 import { createGlobalStyle } from "styled-components";
-import title from "./assets/fonts/static/Montserrat-BoldItalic.ttf";
-import font from "./assets/fonts/Montserrat-VariableFont_wght.ttf";
 import { Fotter } from "./components/footer/footer";
 import {Route, Routes } from "react-router-dom";
 import Main from "./components/main/main";
