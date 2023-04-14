@@ -8,11 +8,10 @@ import {
   Li,
   Section,
   Ul,
-  Div,
   ImageBackground,
 } from "../../styles";
 import { Buttons } from "./buttons/buttons";
-
+import "../../animation.css"
 
 const Main = () => {
   const [Upcoming, setUpcoming] = useState([]);
@@ -30,7 +29,7 @@ const Main = () => {
       <Ul>
         {Upcoming.map((film, index) => {
             return (
-              <Li key={index}>
+              <Li className="cards" key={index} style={{animationDelay: `${0.2 * index}s`}}>
                 <Link to={`/movie/${film.id}`}>
                   {film.poster_path === null ? (
                     <Box>

@@ -1,7 +1,7 @@
 import { getTopRated } from "../../../get";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Loading from "../../loading/loading";
+import { Loading }from "../../loading/loading";
 import { Buttons } from "../buttons/buttons";
 import {
   Button,

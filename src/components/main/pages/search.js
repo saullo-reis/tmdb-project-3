@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { getName } from "../../../get";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-import Loading from "../../loading/loading";
+import { Loading } from "../../loading/loading";
 import { ImageBackground } from "../../../styles";
 
 export const Search = (data) => {

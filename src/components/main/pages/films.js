@@ -1,7 +1,7 @@
 import { getPopular } from "../../../get";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Loading from "../../loading/loading";
+import {Loading} from "../../loading/loading";
 import { Ul, Div, SectionFilms, H2, Li, Box, H4, Button, ImageBackground } from "../../../styles"
 import { Buttons } from "../buttons/buttons";
 

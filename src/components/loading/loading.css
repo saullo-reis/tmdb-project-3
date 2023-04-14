@@ -1,0 +1,15 @@
+.load{
+    width: 20px;
+    height: 20px;
+    border: 10px solid #00BFFF;
+    border-radius: 50%;
+    border-top-color: transparent;
+    animation: loading .6s linear infinite;
+}
+
+@keyframes loading{
+    to{
+        transform: rotate(360deg);
+    }
+}
+        

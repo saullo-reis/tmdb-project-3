@@ -46,12 +46,7 @@ export const Img = styled.img`
 export const ImageBackground = styled.div`
   width: 200px;
   height: 300px;
-  border-radius:20px;
   transition:1.1s;
-  :hover {
-    background-size: 205px;
-    filter: brightness(70%);
-  }
 `;
 
 export const SectionFilms = styled.section`
@@ -61,7 +56,7 @@ export const SectionFilms = styled.section`
 
 export const Div = styled.div`
     flex-flow:row wrap;
-    margin-bottom:5px;
+    margin-bottom:40px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -115,13 +110,9 @@ export const Li = styled.li`
   margin: 10px;
   margin-bottom: 60px;
   cursor: pointer;
-  transition: 1.2s;
-  :hover {
-    p {
-      display: block;
-      font-size: 15px;
-      font-weight: bold;
-    }
+  transition: .7s;
+  &:hover{
+    transform:scale(1.2);
   }
 `;
 
@@ -130,7 +121,7 @@ export const Section = styled.section`
   flex-direction:column;
   align-items:center;
   justify-content:center;
-  padding:30px 0 30px 0;
+  padding:150px 0
 `
 
 export const SectionTopRated = styled.section`
