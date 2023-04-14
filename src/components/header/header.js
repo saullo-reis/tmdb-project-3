@@ -116,7 +116,6 @@ const InputStyle = styled.input`
   height: 30px;
   width: 60%;
   border: solid white 1px;
-  border-radius: 5px;
   margin-right: 10px;
   padding: 5px;
   background-color: black;
